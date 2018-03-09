@@ -12,6 +12,7 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -48,6 +49,8 @@ ext {
     roomVersion = "1.0.0"
     daggerVersion = '2.11'
     dexmakerVersion = '1.2'
+    firebaseVersion = "11.8.0"
+    butterKnifeVersion = "8.8.1"
 }
 
 
