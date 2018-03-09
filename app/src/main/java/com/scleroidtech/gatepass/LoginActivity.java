@@ -39,6 +39,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
+
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -61,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,13 +88,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                // Create and launch sign-in intent
+
+                // attemptLogin();
             }
         });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
+
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {

@@ -15,7 +15,7 @@ android {
         debug {
             minifyEnabled true
             // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
-            useProguard false
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
@@ -27,7 +27,7 @@ android {
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
     }
-    flavorDimensions "default"
+   /* flavorDimensions "default"
 
     // If you need to add more flavors, consider using flavor dimensions.
     productFlavors {
@@ -39,7 +39,8 @@ android {
             dimension "default"
         }
     }
-
+*/
+/*
     // Remove mockRelease as it's not needed.
     android.variantFilter { variant ->
         if (variant.buildType.name == 'release'
@@ -47,12 +48,17 @@ android {
             variant.setIgnore(true)
         }
     }
+*/
 
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests.all {
         testLogging {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -61,14 +67,15 @@ android {
  all versions in a single place. This improves readability and helps managing project complexity.
  */
 dependencies {
-    // App's dependencies, including test
 
+    // App's dependencies, including test
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+
     //   compile "com.google.guava:guava:$rootProject.guavaVersion"
     compile "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
@@ -86,41 +93,47 @@ dependencies {
 
     //FireBase
     implementation "com.google.firebase:firebase-auth:$rootProject.firebaseVersion"
+    compile 'com.firebaseui:firebase-ui-auth:3.2.2'
+
     // ButterKnife
     compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+    //TImber
+    implementation 'com.jakewharton.timber:timber:4.6.1'
+
     /*  // Dependencies for local unit tests
-    testCompile "junit:junit:$rootProject.ext.junitVersion"
-    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+        testCompile "junit:junit:$rootProject.ext.junitVersion"
+        testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+        testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
 
-    // Android Testing Support Library's runner and rules
-    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    androidTestCompile "com.android.support.test:rules:$rootProject.ext.rulesVersion"
+        // Android Testing Support Library's runner and rules
+        androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+        androidTestCompile "com.android.support.test:rules:$rootProject.ext.rulesVersion"
 
-    androidTestCompile "android.arch.persistence.room:testing:$rootProject.roomVersion"
+        androidTestCompile "android.arch.persistence.room:testing:$rootProject.roomVersion"
 
-    // Dependencies for Android unit tests
-    androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
-    androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
-    androidTestCompile "com.google.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
-    androidTestCompile "com.google.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
+        // Dependencies for Android unit tests
+        androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
+        androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
+        androidTestCompile "com.google.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
+        androidTestCompile "com.google.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
 
-    // Espresso UI Testing
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
-    androidTestCompile "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
-    compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+        // Espresso UI Testing
+        androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+        androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+        androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+        androidTestCompile "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
+        compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
 
-    // Resolve conflicts between main and test APK:
-    androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
-    androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-    androidTestCompile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    androidTestCompile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    androidTestCompile "com.android.support:design:$rootProject.supportLibraryVersion"
-    androidTestCompile "com.google.code.findbugs:jsr305:3.0.2"
-*/
+        // Resolve conflicts between main and test APK:
+        androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+        androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+        androidTestCompile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+        androidTestCompile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+        androidTestCompile "com.android.support:design:$rootProject.supportLibraryVersion"
+        androidTestCompile "com.google.code.findbugs:jsr305:3.0.2"
+    */
 }
 
 apply plugin: 'com.google.gms.google-services'

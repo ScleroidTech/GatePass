@@ -8,18 +8,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Arrays;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
 
+    private static final int RC_SIGN_IN = 123;
     @BindView(R.id.message)
-    private TextView mTextMessage;
+    TextView mTextMessage;
+    // Choose authentication providers
+    List<AuthUI.IdpConfig> providers = Arrays.asList(
+            new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER).build());
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private String mUsername, mPhotoUrl;
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -49,11 +61,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        updateUI();
+
+        //   mTextMessage = (TextView) findViewById(R.id.message);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    private void updateUI() {
         if (mFirebaseUser == null) {
             // Not signed in, launch the Sign In activity
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-            return;
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(providers)
+                            .build(),
+                    RC_SIGN_IN);
+            //startActivity(new Intent(this, LoginActivity.class));
+            //  finish();
 
         } else {
             mUsername = mFirebaseUser.getDisplayName();
@@ -62,9 +87,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        //   mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            IdpResponse response = IdpResponse.fromResultIntent(data);
+
+            if (resultCode == RESULT_OK) {
+                // Successfully signed in
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                // ...
+            } else {
+                // Sign in failed, check response for error code
+                Timber.d(resultCode + " " + response.toString());
+                // ...
+            }
+        }
+    }
+
 
 }
