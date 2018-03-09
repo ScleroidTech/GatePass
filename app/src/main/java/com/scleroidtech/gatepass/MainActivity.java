@@ -1,5 +1,6 @@
 package com.scleroidtech.gatepass;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static final int RC_SIGN_IN = 123;
+    private final com.scleroidtech.gatepass.snackBarUtils snackBarUtils = new snackBarUtils();
     @BindView(R.id.message)
     TextView mTextMessage;
     // Choose authentication providers
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setAvailableProviders(providers)
+                            .setIsSmartLockEnabled(true, true)
                             .build(),
                     RC_SIGN_IN);
             //startActivity(new Intent(this, LoginActivity.class));
@@ -89,23 +93,47 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("TimberArgCount")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        handleSignInResponse(requestCode, resultCode, data);
+    }
+
+    private void handleSignInResponse(int requestCode, int resultCode, Intent data) {
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                updateUI();
                 // ...
             } else {
                 // Sign in failed, check response for error code
-                Timber.d(resultCode + " " + response.toString());
-                // ...
+                // Sign in failed
+                if (response == null) {
+                    // User pressed back button
+                    showSnackbar(R.string.sign_in_cancelled);
+                    return;
+                }
+
+                if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
+                    showSnackbar(R.string.no_internet_connection);
+                    return;
+                }
+
+                showSnackbar(R.string.unknown_error);
+                Timber.e("Sign-in error: ", response.getError());
             }
+            Timber.d(resultCode + " " + response.toString());
+            // ...
         }
+    }
+
+    private void showSnackbar(int msg) {
+        snackBarUtils.showSnackbar(msg);
     }
 
 
