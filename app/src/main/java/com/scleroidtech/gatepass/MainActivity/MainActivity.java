@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass;
+package com.scleroidtech.gatepass.MainActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -14,6 +15,8 @@ import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.scleroidtech.gatepass.R;
+import com.scleroidtech.gatepass.Utils.snackBarUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static final int RC_SIGN_IN = 123;
-    private final com.scleroidtech.gatepass.snackBarUtils snackBarUtils = new snackBarUtils();
+    private final com.scleroidtech.gatepass.Utils.snackBarUtils snackBarUtils = new snackBarUtils();
     @BindView(R.id.message)
     TextView mTextMessage;
     // Choose authentication providers
@@ -133,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showSnackbar(int msg) {
-        snackBarUtils.showSnackbar(msg);
+        View parentLayout = getWindow().getDecorView().findViewById(android.R.id.content);
+        snackBarUtils.showSnackbar(parentLayout, msg);
     }
 
 

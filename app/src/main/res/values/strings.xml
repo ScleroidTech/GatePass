@@ -6,7 +6,7 @@
     <string name="title_activity_login">Sign in</string>
 
 
-    <string name="unknown_error"><![CDATA[Something is Wrong,  & We don\'t know what?]]></string>
+    <string name="unknown_error">Something is Definitely wrong, Kuch to gadbad hai?</string>
     <string name="no_internet_connection">There\'s no internet here, Are you in Forest?</string>
-    <string name="sign_in_cancelled">You cancelled sign in, Oops!</string>
+    <string name="sign_in_cancelled">You cancelled sign in, Are You Drunk?</string>
 </resources>
