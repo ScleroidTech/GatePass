@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "206413369212",
+    "firebase_url": "https://gatepass-11821.firebaseio.com",
+    "project_id": "gatepass-11821",
+    "storage_bucket": "gatepass-11821.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206413369212:android:be2d22f0cf57a9ce",
+        "android_client_info": {
+          "package_name": "com.scleroid.gatepass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206413369212-dqusqfj4m9ma21q8te1aa702hb99p3of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scleroid.gatepass",
+            "certificate_hash": "2145e8cdd40d56404a81d75b03111ec7fd83823d"
+          }
+        },
+        {
+          "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANT0mSbwsmhN0Spo1fNLusIw6aBEZc8Dk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206413369212:android:3eab7b72d380c046",
+        "android_client_info": {
+          "package_name": "com.scleroidtech.gatepass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206413369212-evg3k2gnd503p1vkfmgte7matuc0no96.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scleroidtech.gatepass",
+            "certificate_hash": "2145e8cdd40d56404a81d75b03111ec7fd83823d"
+          }
+        },
+        {
+          "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANT0mSbwsmhN0Spo1fNLusIw6aBEZc8Dk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206413369212:android:c2f5aa1fdb6795ba",
+        "android_client_info": {
+          "package_name": "com.scleroidtech.gatepass.mock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206413369212-cd3oh1uj2e10v103dd7mpa60ighmomf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scleroidtech.gatepass.mock",
+            "certificate_hash": "2145e8cdd40d56404a81d75b03111ec7fd83823d"
+          }
+        },
+        {
+          "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANT0mSbwsmhN0Spo1fNLusIw6aBEZc8Dk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
