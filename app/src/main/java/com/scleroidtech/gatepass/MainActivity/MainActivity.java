@@ -45,15 +45,17 @@ public class MainActivity extends AppCompatActivity
     @Inject
     SnackBarUtils snackBarUtils;
     private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
-    private String mUsername, mPhotoUrl;
+    private FirebaseUser firebaseUser;
+    private String username, photoUrl;
+    private String userEmail;
+    private String userPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        firebaseUser = mFirebaseAuth.getCurrentUser();
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
@@ -63,13 +65,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -82,7 +79,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void updateUI() {
-        if (mFirebaseUser == null) {
+        if (firebaseUser == null) {
             // Not signed in, launch the Sign In activity
             startActivityForResult(
                     AuthUI.getInstance()
@@ -95,9 +92,15 @@ public class MainActivity extends AppCompatActivity
             //  finish();
 
         } else {
-            mUsername = mFirebaseUser.getDisplayName();
-            if (mFirebaseUser.getPhotoUrl() != null) {
-                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+            username = firebaseUser.getDisplayName();
+            if (firebaseUser.getEmail() != null) {
+                userEmail = firebaseUser.getEmail();
+            }
+            if (firebaseUser.getPhoneNumber() != null) {
+                userPhone = firebaseUser.getPhoneNumber();
+            }
+            if (firebaseUser.getPhotoUrl() != null) {
+                photoUrl = firebaseUser.getPhotoUrl().toString();
             }
         }
 
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -175,7 +178,7 @@ public class MainActivity extends AppCompatActivity
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 updateUI();
                 // ...
             } else {
@@ -200,6 +203,13 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Calls the {@link SnackBarUtils} method showSnackBar
+     * Which is used to display
+     * {@link Snackbar}
+     *
+     * @param msg the message string which needs to be shown
+     */
     private void showSnackbar(int msg) {
         View parentLayout = getWindow().getDecorView().findViewById(android.R.id.content);
         snackBarUtils.showSnackbar(parentLayout, msg);
