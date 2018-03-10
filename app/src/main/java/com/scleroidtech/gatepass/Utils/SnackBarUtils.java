@@ -3,8 +3,11 @@ package com.scleroidtech.gatepass.Utils;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-public class snackBarUtils {
-    public snackBarUtils() {
+import javax.inject.Inject;
+
+public class SnackBarUtils {
+    @Inject
+    public SnackBarUtils() {
     }
 
     public void showSnackbar(View view, int msg) {

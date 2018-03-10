@@ -9,6 +9,7 @@ package com.scleroidtech.gatepass.DependencyInjection;
 import android.app.Application;
 
 import com.scleroidtech.gatepass.App;
+import com.scleroidtech.gatepass.Utils.SnackBarUtils;
 
 import javax.inject.Singleton;
 
@@ -40,6 +41,7 @@ public interface AppComponent extends AndroidInjector<DaggerApplication> {
     void inject(App application);
 
     //   TasksRepository getTasksRepository();
+    SnackBarUtils getSnackBarUtils();
 
     @Override
     void inject(DaggerApplication instance);
