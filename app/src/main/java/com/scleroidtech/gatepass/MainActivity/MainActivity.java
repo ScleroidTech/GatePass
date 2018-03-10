@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
     List<AuthUI.IdpConfig> providers = Arrays.asList(
             new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER).build());
     @Inject
-    private SnackBarUtils snackBarUtils;
+    SnackBarUtils snackBarUtils;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private String mUsername, mPhotoUrl;
