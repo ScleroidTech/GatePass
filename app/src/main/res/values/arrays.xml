@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Dashboard</item>
+        <item>Order</item>
+        <item>Address</item>
+        <item>Partners</item>
+        <item>Profile</item>
+        <item>Settings</item>
+        <item>About Us</item>
+
+        <item>Privacy Policy</item>
+    </string-array>
+
+</resources>

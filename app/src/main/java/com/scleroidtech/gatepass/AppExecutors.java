@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.scleroidtech.gatepass.Utils;
+package com.scleroidtech.gatepass;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
@@ -40,6 +42,12 @@ public class AppExecutors {
     private final Executor networkIO;
 
     private final Executor mainThread;
+
+    @Inject
+    public AppExecutors() {
+        this(Executors.newSingleThreadExecutor(), Executors.newFixedThreadPool(3),
+                new MainThreadExecutor());
+    }
 
     public AppExecutors(Executor diskIO, Executor networkIO, Executor mainThread) {
         this.diskIO = diskIO;

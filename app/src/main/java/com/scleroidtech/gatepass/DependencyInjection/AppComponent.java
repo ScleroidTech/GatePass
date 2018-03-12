@@ -31,7 +31,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
  * // and location of subcomponents.
  */
 @Singleton
-@Component(modules = {/*TasksRepositoryModule.class,*/
+@Component(modules = {RepositoryModule.class,
         ApplicationModule.class,
         // ActivityBindingModule.class,
         AndroidSupportInjectionModule.class})
@@ -45,6 +45,7 @@ public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
     @Override
     void inject(DaggerApplication instance);
+
 
     // Gives us syntactic sugar. we can then do DaggerAppComponent.builder().application(this).build().inject(this);
     // never having to instantiate any modules or say which module we are passing the application to.
