@@ -4,11 +4,23 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.scleroidtech.gatepass.R;
+import com.scleroidtech.gatepass.adapter.FrontPageAdapter;
+import com.scleroidtech.gatepass.model.tempModels.Front_View;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,12 +35,16 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    @BindView(R.id.recycler_view_home_page)
+    RecyclerView recyclerView;
+    @Inject
+    Context context;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
+    private List<Front_View> front_views;
+    private FrontPageAdapter frontPageAdapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -83,13 +99,58 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        ButterKnife.bind(this, view);
+
+        setupRecyclerView();
+        front_views = initializeFrontRowData();
+        initializeRecyclerView();
+
+        return view;
+    }
+
+    private void initializeRecyclerView() {
+
+        frontPageAdapter.setFront_views(front_views);
+        frontPageAdapter.notifyDataSetChanged();
+    }
+
+
+    /**
+     * Setups the recyclerView for the main page
+     */
+
+    private void setupRecyclerView() {
+        // recyclerView = view.findViewById(R.id.recycler_view_home_page);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        frontPageAdapter = new FrontPageAdapter(new ArrayList<>());
+        recyclerView.setAdapter(frontPageAdapter);
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+
+    private List<Front_View> initializeFrontRowData() {
+        List<Front_View> front_viewList = new ArrayList<>();
+        int[] drawableList = {R.drawable.ic_person_black_24dp,
+                R.drawable.ic_assignment_turned_in_black_24dp
+        };
+        String[] titleList = {
+                "Sign in a New Visitor",
+                "Sign out an Existing Visitor"
+        };
+        for (int i = 0; i < drawableList.length; i++) {
+
+            Front_View front_view = new Front_View(drawableList[i], titleList[i]);
+            front_viewList.add(front_view);
+        }
+        return front_viewList;
+
+
     }
 
     /**

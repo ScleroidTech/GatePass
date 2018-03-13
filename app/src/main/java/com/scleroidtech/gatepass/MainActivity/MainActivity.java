@@ -370,7 +370,7 @@ public class MainActivity extends AppCompatActivity
         //Check to see which item was being clicked and perform appropriate action
         switch (menuItem.getItemId()) {
             //Replacing the main content with ContentFragment Which is our Inbox View;
-            case R.id.nav_camera:
+            case R.id.nav_Entry:
                 navItemIndex = 0;
                 CURRENT_TAG = TAG_DASHBOARD;
                 break;
