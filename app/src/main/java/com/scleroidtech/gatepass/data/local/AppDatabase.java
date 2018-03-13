@@ -1,8 +1,10 @@
-package com.scleroidtech.gatepass.Data.local;
+package com.scleroidtech.gatepass.data.local;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
+import com.scleroidtech.gatepass.data.local.Dao.PersonDao;
+import com.scleroidtech.gatepass.data.local.Dao.VisitorDao;
 import com.scleroidtech.gatepass.model.Person;
 
 /**
@@ -57,8 +59,8 @@ public abstract class AppDatabase extends RoomDatabase {
      * For Room Library
      *
      * @return an object of
-     * @see com.scleroidtech.gatepass.Data.local.Dao.PersonDao
-     * @see com.scleroidtech.gatepass.Data.local.Dao.PersonDao
+     * @see com.scleroidtech.gatepass.data.local.Dao.PersonDao
+     * @see com.scleroidtech.gatepass.data.local.Dao.PersonDao
      */
     public abstract PersonDao personDao();
 
@@ -67,8 +69,8 @@ public abstract class AppDatabase extends RoomDatabase {
      * For Room Library
      *
      * @return an object of
-     * @see com.scleroidtech.gatepass.Data.local.Dao.VisitorDao
-     * @see com.scleroidtech.gatepass.Data.local.Dao.VisitorDao
+     * @see com.scleroidtech.gatepass.data.local.Dao.VisitorDao
+     * @see com.scleroidtech.gatepass.data.local.Dao.VisitorDao
      */
     public abstract VisitorDao visitorDao();
 

@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.DependencyInjection;
+package com.scleroidtech.gatepass.dependencyInjection;
 
 /**
  * Copyright (C) 3/10/18
@@ -6,7 +6,7 @@ package com.scleroidtech.gatepass.DependencyInjection;
  */
 
 import com.scleroidtech.gatepass.AppExecutors;
-import com.scleroidtech.gatepass.Utils.DiskIOThreadExecutor;
+import com.scleroidtech.gatepass.utils.DiskIOThreadExecutor;
 
 import java.util.concurrent.Executors;
 

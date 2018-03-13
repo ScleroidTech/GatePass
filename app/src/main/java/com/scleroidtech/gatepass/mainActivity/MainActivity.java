@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.MainActivity;
+package com.scleroidtech.gatepass.mainActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -28,9 +28,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.scleroidtech.gatepass.AppExecutors;
 import com.scleroidtech.gatepass.R;
-import com.scleroidtech.gatepass.Utils.ImageUtils;
-import com.scleroidtech.gatepass.Utils.InstantAppExecutors;
-import com.scleroidtech.gatepass.Utils.SnackBarUtils;
+import com.scleroidtech.gatepass.utils.ImageUtils;
+import com.scleroidtech.gatepass.utils.InstantAppExecutors;
+import com.scleroidtech.gatepass.utils.SnackBarUtils;
 
 import java.util.Arrays;
 import java.util.List;

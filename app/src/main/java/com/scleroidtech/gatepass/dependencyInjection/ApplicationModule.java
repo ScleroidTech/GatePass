@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.DependencyInjection;
+package com.scleroidtech.gatepass.dependencyInjection;
 
 /**
  * Copyright (C) 3/9/18

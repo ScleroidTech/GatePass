@@ -34,5 +34,6 @@
     <string name="prompt_vehicle">Vehicle</string>
     <string name="prompt_reason">Purpose for visit</string>
     <string name="prompt_person">Person To Be Visited</string>
+    <string name="action_register">Register</string>
 
 </resources>

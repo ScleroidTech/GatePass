@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.Data.local.Dao;
+package com.scleroidtech.gatepass.data.local.Dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;

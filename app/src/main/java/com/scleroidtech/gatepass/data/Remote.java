@@ -1,7 +1,5 @@
-package com.scleroidtech.gatepass.Utils;
-
 /*
- * Copyright (C) 2017 The Android Open Source Project
+ * Copyright 2016, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +13,17 @@ package com.scleroidtech.gatepass.Utils;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.scleroidtech.gatepass.data;
 
-import com.scleroidtech.gatepass.AppExecutors;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
-import java.util.concurrent.Executor;
+import javax.inject.Qualifier;
 
-public class InstantAppExecutors extends AppExecutors {
-    private static Executor instant = Runnable::run;
+@Qualifier
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Remote {
 
-    public InstantAppExecutors() {
-        super(instant, instant, instant);
-    }
 }

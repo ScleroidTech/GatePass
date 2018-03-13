@@ -120,6 +120,7 @@ dependencies {
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
 
+
     /*  // Dependencies for local unit tests
         testCompile "junit:junit:$rootProject.ext.junitVersion"
         testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"

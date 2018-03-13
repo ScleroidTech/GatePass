@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.MainActivity;
+package com.scleroidtech.gatepass.mainActivity;
 
 import android.content.Context;
 import android.net.Uri;

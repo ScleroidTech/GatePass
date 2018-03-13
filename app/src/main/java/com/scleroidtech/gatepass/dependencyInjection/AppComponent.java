@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.DependencyInjection;
+package com.scleroidtech.gatepass.dependencyInjection;
 
 /**
  * Copyright (C) 3/9/18
@@ -9,7 +9,7 @@ package com.scleroidtech.gatepass.DependencyInjection;
 import android.app.Application;
 
 import com.scleroidtech.gatepass.App;
-import com.scleroidtech.gatepass.Utils.SnackBarUtils;
+import com.scleroidtech.gatepass.utils.SnackBarUtils;
 
 import javax.inject.Singleton;
 

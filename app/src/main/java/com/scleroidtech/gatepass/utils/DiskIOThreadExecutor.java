@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.Utils;
+package com.scleroidtech.gatepass.utils;
 
 import android.support.annotation.NonNull;
 
