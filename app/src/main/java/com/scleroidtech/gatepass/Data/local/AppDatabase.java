@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass;
+package com.scleroidtech.gatepass.Data.local;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
