@@ -24,9 +24,9 @@ public class Visitor extends Person {
     @PrimaryKey(autoGenerate = true)
     private long visitId;
     @TypeConverters(DateConverter.class)
-    private Date EntryTime;
+    private Date entryTime;
     @TypeConverters(DateConverter.class)
-    private Date ExitTime;
+    private Date exitTime;
     private String modeOfTravel;
     @Nullable
     private String vehicleNo;
@@ -36,14 +36,15 @@ public class Visitor extends Person {
 
     public Visitor(String name, String address, String company, String mobileNo, String imageUrl, String proofUrl, Date entryTime, Date exitTime, String modeOfTravel, String vehicleNo, String purposeOfVisit, String personToVisit, long serialNoVisitor) {
         super(name, address, company, mobileNo, imageUrl, proofUrl);
-        EntryTime = entryTime;
-        ExitTime = exitTime;
+        this.entryTime = entryTime;
+        this.exitTime = exitTime;
         this.modeOfTravel = modeOfTravel;
         this.vehicleNo = vehicleNo;
         this.purposeOfVisit = purposeOfVisit;
         this.personToVisit = personToVisit;
         this.serialNoVisitor = serialNoVisitor;
     }
+
 
     public long getVisitId() {
         return visitId;
@@ -54,19 +55,19 @@ public class Visitor extends Person {
     }
 
     public Date getEntryTime() {
-        return EntryTime;
+        return entryTime;
     }
 
     public void setEntryTime(Date entryTime) {
-        EntryTime = entryTime;
+        this.entryTime = entryTime;
     }
 
     public Date getExitTime() {
-        return ExitTime;
+        return exitTime;
     }
 
     public void setExitTime(Date exitTime) {
-        ExitTime = exitTime;
+        this.exitTime = exitTime;
     }
 
     public long getSerialNoVisitor() {
