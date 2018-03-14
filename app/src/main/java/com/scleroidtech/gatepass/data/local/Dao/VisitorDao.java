@@ -19,11 +19,11 @@ import java.util.List;
 @Dao
 public interface VisitorDao {
     /**
-     * Select all Visitors from the Visitors table.
+     * Select all Visitors from the Visitor table.
      *
      * @return all Visitors.
      */
-    @Query("SELECT * FROM Visitors")
+    @Query("SELECT * FROM Visitor")
     List<Visitor> getVisitors();
 
     /**
@@ -32,7 +32,7 @@ public interface VisitorDao {
      * @param VisitorId the Visitor id.
      * @return the Visitor with VisitorId.
      */
-    @Query("SELECT * FROM Visitors WHERE entryid = :VisitorId")
+    @Query("SELECT * FROM Visitor WHERE visitId = :VisitorId")
     Visitor getVisitorById(String VisitorId);
 
     /**
@@ -47,7 +47,7 @@ public interface VisitorDao {
      * Update a Visitor.
      *
      * @param Visitor Visitor to be updated
-     * @return the number of Visitors updated. This should always be 1.
+     * @return the number of Visitor updated. This should always be 1.
      */
     @Update
     int updateVisitor(Visitor Visitor);
@@ -58,28 +58,21 @@ public interface VisitorDao {
      * @param VisitorId id of the Visitor
      * @param exitTime  status to be updated
      */
-    @Query("UPDATE Visitors SET exitTime = :exitTime WHERE entryid = :VisitorId")
+    @Query("UPDATE Visitor SET exitTime = :exitTime WHERE visitId = :VisitorId")
     void updateCompleted(String VisitorId, String exitTime);
 
     /**
      * Delete a Visitor by id.
      *
-     * @return the number of Visitors deleted. This should always be 1.
+     * @return the number of Visitor deleted. This should always be 1.
      */
-    @Query("DELETE FROM Visitors WHERE visitid = :VisitId")
+    @Query("DELETE FROM Visitor WHERE visitid = :VisitId")
     int deleteVisitorById(String VisitId);
 
     /**
      * Delete all Visitors.
      */
-    @Query("DELETE FROM Visitors")
+    @Query("DELETE FROM Visitor")
     void deleteVisitors();
 
-    /**
-     * Delete all completed Visitors from the table.
-     *
-     * @return the number of Visitors deleted.
-     */
-    @Query("DELETE FROM Visitors WHERE completed = 1")
-    int deleteCompletedVisitors();
 }

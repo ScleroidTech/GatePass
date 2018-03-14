@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @Entity(foreignKeys = @ForeignKey(entity = Person.class,
         parentColumns = "serialNo",
         childColumns = "serialNoVisitor"))
-public class Visitor extends Person {
+public class Visitor {
     @PrimaryKey(autoGenerate = true)
     private long visitId;
     @TypeConverters(DateConverter.class)
@@ -34,8 +34,7 @@ public class Visitor extends Person {
     private String personToVisit;
     private long serialNoVisitor;
 
-    public Visitor(String name, String address, String company, String mobileNo, String imageUrl, String proofUrl, Date entryTime, Date exitTime, String modeOfTravel, String vehicleNo, String purposeOfVisit, String personToVisit, long serialNoVisitor) {
-        super(name, address, company, mobileNo, imageUrl, proofUrl);
+    public Visitor(Date entryTime, Date exitTime, String modeOfTravel, String vehicleNo, String purposeOfVisit, String personToVisit, long serialNoVisitor) {
         this.entryTime = entryTime;
         this.exitTime = exitTime;
         this.modeOfTravel = modeOfTravel;
@@ -44,7 +43,6 @@ public class Visitor extends Person {
         this.personToVisit = personToVisit;
         this.serialNoVisitor = serialNoVisitor;
     }
-
 
     public long getVisitId() {
         return visitId;
