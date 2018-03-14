@@ -76,6 +76,7 @@ android {
 dependencies {
 
     // App's dependencies, including test
+    //noinspection GradleCompatible
     implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     implementation 'com.android.support:support-v4:27.1.0'
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
@@ -103,6 +104,7 @@ dependencies {
     //FireBase
     implementation "com.google.firebase:firebase-auth:$rootProject.firebaseVersion"
     compile 'com.firebaseui:firebase-ui-auth:3.2.2'
+    compile "com.google.firebase:firebase-firestore:$rootProject.firebaseVersion"
 
     // ButterKnife
     compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"

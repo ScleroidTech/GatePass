@@ -1,14 +1,21 @@
 package com.scleroidtech.gatepass.mainActivity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.scleroidtech.gatepass.R;
+
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,13 +30,12 @@ public class NewVisitFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    //Initializing String array adapter for the spinner
+    ArrayAdapter<String> spinnerArrayAdapter;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
-
     public NewVisitFragment() {
         // Required empty public constructor
     }
@@ -83,7 +89,36 @@ public class NewVisitFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_visit, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_visit, container, false);
+        ButterKnife.bind(this, view);
+        initializeSpinner();
+        return view;
+    }
+
+    /**
+     * Initializing the {@link android.widget.Spinner}
+     */
+    private void initializeSpinner() {
+        String[] tempArray = getResources().getStringArray(R.array.mode_of_travel_names);
+
+        spinnerArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, tempArray) {
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View dropDownView = super.getDropDownView(position, convertView, parent);
+                TextView textView = (TextView) dropDownView;
+                if (position == 0) textView.setTextColor(Color.GRAY);
+                return dropDownView;
+            }
+
+            @Override
+            public boolean isEnabled(int position) {
+                return position != 0;
+
+            }
+        };
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        //TODO set Default Spinner selection to 0
+
     }
 
     @Override

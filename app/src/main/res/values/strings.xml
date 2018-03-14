@@ -9,7 +9,6 @@
     <string name="unknown_error">Something is Definitely wrong, Kuch to gadbad hai?</string>
     <string name="no_internet_connection">There\'s no internet here, Are you in Forest?</string>
     <string name="sign_in_cancelled">You cancelled sign in, Are You Drunk?</string>
-    <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -24,10 +23,7 @@
 
 
     <!-- Strings related to login -->
-    <string name="prompt_first_name">First Name</string>
-    <string name="prompt_last_name">LastName</string>
-
-
+    <string name="prompt_name">Name</string>
     <string name="prompt_mobile">Mobile</string>
     <string name="prompt_address">Address</string>
     <string name="prompt_city">City</string>
@@ -35,5 +31,23 @@
     <string name="prompt_reason">Purpose for visit</string>
     <string name="prompt_person">Person To Be Visited</string>
     <string name="action_register">Register</string>
+    <string name="prompt_company">Organization Name(Optional)</string>
+    <string name="entry_time">Entry Time</string>
+    <string name="prompt_mode_of_travel">Mode of Travel</string>
+    <string name="prompt_picture">Photo</string>
+    <string name="prompt_picture_id_proof">ID proof</string>
+    <string name="prompt_vehicle_number">Vehicle Number</string>
+    <string name="prompt_visiting_person">Person To Be Visited</string>
+
+    <!-- Spinner Mode of vehicle -->
+    <string-array name="mode_of_travel_names">
+        <item>Mode of Travel</item>
+        <item>Walk</item>
+        <item>Bike</item>
+        <item>Car</item>
+        <item>Plane</item>
+        <item>Chopper</item>
+        <item>Spaceship</item>
+    </string-array>
 
 </resources>

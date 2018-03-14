@@ -40,14 +40,6 @@ public class Visitor extends Person {
         this.serialNoVisitor = serialNoVisitor;
     }
 
-    public Visitor(String name, String address, String company, String mobileNo, String imageUrl, String proofUrl, String modeOfTravel, String vehicleNo, String purposeOfVisit, String personToVisit) {
-        super(name, address, company, mobileNo, imageUrl, proofUrl);
-        this.modeOfTravel = modeOfTravel;
-        this.vehicleNo = vehicleNo;
-        this.purposeOfVisit = purposeOfVisit;
-        this.personToVisit = personToVisit;
-    }
-
     public long getVisitId() {
         return visitId;
     }

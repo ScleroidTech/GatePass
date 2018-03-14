@@ -26,6 +26,7 @@ import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.scleroidtech.gatepass.AppExecutors;
 import com.scleroidtech.gatepass.R;
 import com.scleroidtech.gatepass.utils.ImageUtils;
@@ -143,6 +144,7 @@ public class MainActivity extends AppCompatActivity
         // initializing navigation menu
         setUpNavigationView();
 
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
         appExecutors = new InstantAppExecutors();
         if (savedInstanceState == null) {
