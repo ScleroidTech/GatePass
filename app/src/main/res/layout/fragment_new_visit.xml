@@ -124,8 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="15dp"
-                app:Hint="@string/prompt_mode_of_travel">
+                android:padding="15dp">
 
                 <Spinner
                     android:id="@+id/mode_of_entry_spinner"
