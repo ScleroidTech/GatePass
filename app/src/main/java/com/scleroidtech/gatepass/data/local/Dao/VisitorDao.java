@@ -6,7 +6,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.scleroidtech.gatepass.model.Visitor;
+import com.scleroidtech.gatepass.model.Visit;
 
 import java.util.List;
 
@@ -19,60 +19,60 @@ import java.util.List;
 @Dao
 public interface VisitorDao {
     /**
-     * Select all Visitors from the Visitor table.
+     * Select all Visitors from the Visit table.
      *
      * @return all Visitors.
      */
-    @Query("SELECT * FROM Visitor")
-    List<Visitor> getVisitors();
+    @Query("SELECT * FROM Visit")
+    List<Visit> getVisitors();
 
     /**
-     * Select a Visitor by id.
+     * Select a Visit by id.
      *
-     * @param VisitorId the Visitor id.
-     * @return the Visitor with VisitorId.
+     * @param VisitorId the Visit id.
+     * @return the Visit with VisitorId.
      */
-    @Query("SELECT * FROM Visitor WHERE visitId = :VisitorId")
-    Visitor getVisitorById(String VisitorId);
+    @Query("SELECT * FROM Visit WHERE visitId = :VisitorId")
+    Visit getVisitorById(String VisitorId);
 
     /**
-     * Insert a Visitor in the database. If the Visitor already exists, replace it.
+     * Insert a Visit in the database. If the Visit already exists, replace it.
      *
-     * @param Visitor the Visitor to be inserted.
+     * @param Visit the Visit to be inserted.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertVisitor(Visitor Visitor);
+    void insertVisitor(Visit Visit);
 
     /**
-     * Update a Visitor.
+     * Update a Visit.
      *
-     * @param Visitor Visitor to be updated
-     * @return the number of Visitor updated. This should always be 1.
+     * @param Visit Visit to be updated
+     * @return the number of Visit updated. This should always be 1.
      */
     @Update
-    int updateVisitor(Visitor Visitor);
+    int updateVisitor(Visit Visit);
 
     /**
-     * Update the complete status of a Visitor
+     * Update the complete status of a Visit
      *
-     * @param VisitorId id of the Visitor
+     * @param VisitorId id of the Visit
      * @param exitTime  status to be updated
      */
-    @Query("UPDATE Visitor SET exitTime = :exitTime WHERE visitId = :VisitorId")
+    @Query("UPDATE Visit SET exitTime = :exitTime WHERE visitId = :VisitorId")
     void updateCompleted(String VisitorId, String exitTime);
 
     /**
-     * Delete a Visitor by id.
+     * Delete a Visit by id.
      *
-     * @return the number of Visitor deleted. This should always be 1.
+     * @return the number of Visit deleted. This should always be 1.
      */
-    @Query("DELETE FROM Visitor WHERE visitid = :VisitId")
+    @Query("DELETE FROM Visit WHERE visitid = :VisitId")
     int deleteVisitorById(String VisitId);
 
     /**
      * Delete all Visitors.
      */
-    @Query("DELETE FROM Visitor")
+    @Query("DELETE FROM Visit")
     void deleteVisitors();
 
 }

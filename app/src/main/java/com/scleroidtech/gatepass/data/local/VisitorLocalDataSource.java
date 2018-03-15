@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import com.scleroidtech.gatepass.AppExecutors;
 import com.scleroidtech.gatepass.data.VisitorsDataSource;
 import com.scleroidtech.gatepass.data.local.Dao.VisitorDao;
-import com.scleroidtech.gatepass.model.Visitor;
+import com.scleroidtech.gatepass.model.Visit;
 
 import java.util.List;
 
@@ -42,13 +42,13 @@ public class VisitorLocalDataSource implements VisitorsDataSource {
     @Override
     public void getVisitors(@NonNull final VisitorsDataSource.LoadVisitorsCallback callback) {
         Runnable runnable = () -> {
-            final List<Visitor> Visitors = visitorsDao.getVisitors();
+            final List<Visit> visits = visitorsDao.getVisitors();
             mAppExecutors.mainThread().execute(() -> {
-                if (Visitors.isEmpty()) {
+                if (visits.isEmpty()) {
                     // This will be called if the table is new or just empty.
                     callback.onDataNotAvailable();
                 } else {
-                    callback.onVisitorsLoaded(Visitors);
+                    callback.onVisitorsLoaded(visits);
                 }
             });
         };
@@ -62,12 +62,12 @@ public class VisitorLocalDataSource implements VisitorsDataSource {
     }
 
     @Override
-    public void saveVisitor(@NonNull Visitor Visitor) {
+    public void saveVisitor(@NonNull Visit Visit) {
 
     }
 
     @Override
-    public void exitVisitor(@NonNull Visitor Visitor) {
+    public void exitVisitor(@NonNull Visit Visit) {
 
     }
 
@@ -78,7 +78,7 @@ public class VisitorLocalDataSource implements VisitorsDataSource {
 
 
     @Override
-    public void activateVisitor(@NonNull Visitor Visitor) {
+    public void activateVisitor(@NonNull Visit Visit) {
 
     }
 

@@ -1,12 +1,9 @@
 package com.scleroidtech.gatepass.data.local;
 
-import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
 import com.scleroidtech.gatepass.data.local.Dao.PersonDao;
 import com.scleroidtech.gatepass.data.local.Dao.VisitorDao;
-import com.scleroidtech.gatepass.model.Person;
-import com.scleroidtech.gatepass.model.Visitor;
 
 /**
  * @author Ganesh Kaple
@@ -16,7 +13,8 @@ import com.scleroidtech.gatepass.model.Visitor;
  * It holds the current object of database
  * It handles creating of the database if it doesn't exists & providing the database object whenever required
  */
-@Database(entities = {Person.class, Visitor.class}, version = 1)
+/*TODO Remove it if needed
+    @Database(entities = {Person.class, Visit.class}, version = 1)*/
 public abstract class AppDatabase extends RoomDatabase {
  /*TODO Remove if DI Worked   *//**
      * Holds the instance of the database

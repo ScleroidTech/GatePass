@@ -21,6 +21,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,6 +46,7 @@ public class HomeFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private List<Front_View> front_views;
     private FrontPageAdapter frontPageAdapter;
+    private Unbinder unbinder;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -100,7 +102,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         setupRecyclerView();
         front_views = initializeFrontRowData();
@@ -127,21 +129,14 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(frontPageAdapter);
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-
     private List<Front_View> initializeFrontRowData() {
         List<Front_View> front_viewList = new ArrayList<>();
         int[] drawableList = {R.drawable.ic_person_black_24dp,
                 R.drawable.ic_assignment_turned_in_black_24dp
         };
         String[] titleList = {
-                "Sign in a New Visitor",
-                "Sign out an Existing Visitor"
+                "Sign in a New Visit",
+                "Sign out an Existing Visit"
         };
         for (int i = 0; i < drawableList.length; i++) {
 
@@ -151,6 +146,19 @@ public class HomeFragment extends Fragment {
         return front_viewList;
 
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     /**

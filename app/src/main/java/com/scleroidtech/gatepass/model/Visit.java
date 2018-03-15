@@ -1,7 +1,5 @@
 package com.scleroidtech.gatepass.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
@@ -17,10 +15,10 @@ import javax.annotation.Nullable;
  * @author Ganesh Kaple
  * @since 3/13/18
  */
-@Entity(foreignKeys = @ForeignKey(entity = Person.class,
+/*@Entity(foreignKeys = @ForeignKey(entity = Person.class,
         parentColumns = "serialNo",
-        childColumns = "serialNoVisitor"))
-public class Visitor {
+        childColumns = "serialNoVisitor"))*/
+public class Visit {
     @PrimaryKey(autoGenerate = true)
     private long visitId;
     @TypeConverters(DateConverter.class)
@@ -34,7 +32,7 @@ public class Visitor {
     private String personToVisit;
     private long serialNoVisitor;
 
-    public Visitor(Date entryTime, Date exitTime, String modeOfTravel, String vehicleNo, String purposeOfVisit, String personToVisit, long serialNoVisitor) {
+    public Visit(Date entryTime, Date exitTime, String modeOfTravel, String vehicleNo, String purposeOfVisit, String personToVisit, long serialNoVisitor) {
         this.entryTime = entryTime;
         this.exitTime = exitTime;
         this.modeOfTravel = modeOfTravel;

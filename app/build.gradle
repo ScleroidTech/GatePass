@@ -1,8 +1,6 @@
-import groovy.transform.Field
 
-@Field private String string
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.jakewharton.hugo'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -112,6 +110,12 @@ dependencies {
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.6.1'
+
+    //Awesome Validation
+    compile 'com.basgeekball:awesome-validation:2.0'
+
+    //Toasty
+    compile 'com.github.GrenderG:Toasty:1.2.5'
 
     // Glide image library
     compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"

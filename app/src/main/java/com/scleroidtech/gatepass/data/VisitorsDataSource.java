@@ -18,7 +18,7 @@ package com.scleroidtech.gatepass.data;
 
 import android.support.annotation.NonNull;
 
-import com.scleroidtech.gatepass.model.Visitor;
+import com.scleroidtech.gatepass.model.Visit;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ import java.util.List;
  * <p>
  * For simplicity, only getVisitors() and getVisitor() have callbacks. Consider adding callbacks to other
  * methods to inform the user of network/database errors or successful operations.
- * For example, when a new Visitor is created, it's synchronously stored in cache but usually every
+ * For example, when a new Visit is created, it's synchronously stored in cache but usually every
  * operation on database or network should be executed in a different thread.
  */
 public interface VisitorsDataSource {
@@ -36,13 +36,13 @@ public interface VisitorsDataSource {
 
     void getVisitor(@NonNull String VisitorId, @NonNull GetVisitorCallback callback);
 
-    void saveVisitor(@NonNull Visitor Visitor);
+    void saveVisitor(@NonNull Visit Visit);
 
-    void exitVisitor(@NonNull Visitor Visitor);
+    void exitVisitor(@NonNull Visit Visit);
 
     void exitVisitor(@NonNull String VisitorId);
 
-    void activateVisitor(@NonNull Visitor Visitor);
+    void activateVisitor(@NonNull Visit Visit);
 
     void activateVisitor(@NonNull String VisitorId);
 
@@ -56,14 +56,14 @@ public interface VisitorsDataSource {
 
     interface LoadVisitorsCallback {
 
-        void onVisitorsLoaded(List<Visitor> Visitors);
+        void onVisitorsLoaded(List<Visit> visits);
 
         void onDataNotAvailable();
     }
 
     interface GetVisitorCallback {
 
-        void onVisitorLoaded(Visitor Visitor);
+        void onVisitorLoaded(Visit Visit);
 
         void onDataNotAvailable();
     }

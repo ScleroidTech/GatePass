@@ -39,6 +39,19 @@
     <string name="prompt_vehicle_number">Vehicle Number</string>
     <string name="prompt_visiting_person">Person To Be Visited</string>
 
+    <!-- Strings relatedto errors -->
+    <string name="nameerror">Enter a valid First name</string>
+    <string name="emailerror">Enter a valid Email</string>
+
+    <string name="passwordretypeerror">Passwords didn\'t match</string>
+    <string name="passworderror">Password should contain uppercase letters,symbols and numbers \nMin 8 characters</string>
+    <string name="null_error">Did you forget to fill this</string>
+    <string name="mobileerror">Enter a valid Mobile</string>
+    <string name="no_vehicle_selected">No mode of Entrance is Selected</string>
+
+    <string name="date_picker_title">Date of Arrival</string>
+    <string name="dateError">Please set the Date and Time of Entry</string>
+
     <!-- Spinner Mode of vehicle -->
     <string-array name="mode_of_travel_names">
         <item>Mode of Travel</item>
