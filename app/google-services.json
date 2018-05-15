@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "206413369212",
-    "firebase_url": "https://gatepass-11821.firebaseio.com",
-    "project_id": "gatepass-11821",
-    "storage_bucket": "gatepass-11821.appspot.com"
+    "project_number": "831458665152",
+    "firebase_url": "https://gatepass-f5152.firebaseio.com",
+    "project_id": "gatepass-f5152",
+    "storage_bucket": "gatepass-f5152.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:206413369212:android:3eab7b72d380c046",
+        "mobilesdk_app_id": "1:831458665152:android:be2d22f0cf57a9ce",
         "android_client_info": {
-          "package_name": "com.scleroidtech.gatepass"
+          "package_name": "com.scleroid.gatepass"
         }
       },
       "oauth_client": [
         {
-          "client_id": "206413369212-jvtdpdoi5vpf4d8pov928kcommdduck0.apps.googleusercontent.com",
+          "client_id": "831458665152-bruv75osesv48r373m1nka0vdfim1a3g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.scleroidtech.gatepass",
-            "certificate_hash": "5c0d9e22557b731d726634fc4c35a4d3615f03cc"
+            "package_name": "com.scleroid.gatepass",
+            "certificate_hash": "87d0e286bda2c83b0e324dde6cbc4869d2660191"
           }
         },
         {
-          "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+          "client_id": "831458665152-pmfj596kbe0bv4dems7026ok189bpanj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANT0mSbwsmhN0Spo1fNLusIw6aBEZc8Dk"
+          "current_key": "AIzaSyDK6GjZrpPVBQQfbgKI74N0ZgMANo2xSZQ"
         }
       ],
       "services": {
@@ -40,7 +40,51 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "206413369212-suc8t4674snrmrbsmf5v9j39f0qugu28.apps.googleusercontent.com",
+              "client_id": "831458665152-pmfj596kbe0bv4dems7026ok189bpanj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831458665152:android:3eab7b72d380c046",
+        "android_client_info": {
+          "package_name": "com.scleroidtech.gatepass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831458665152-8bkkl1dno9bkigklbiepbju6237u4nav.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scleroidtech.gatepass",
+            "certificate_hash": "87d0e286bda2c83b0e324dde6cbc4869d2660191"
+          }
+        },
+        {
+          "client_id": "831458665152-pmfj596kbe0bv4dems7026ok189bpanj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK6GjZrpPVBQQfbgKI74N0ZgMANo2xSZQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831458665152-pmfj596kbe0bv4dems7026ok189bpanj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

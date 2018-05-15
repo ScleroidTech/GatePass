@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.mainActivity;
+package com.scleroidtech.gatepass;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,8 +27,7 @@ import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.scleroidtech.gatepass.AppExecutors;
-import com.scleroidtech.gatepass.R;
+import com.scleroidtech.gatepass.fragments.HomeFragment;
 import com.scleroidtech.gatepass.utils.ImageUtils;
 import com.scleroidtech.gatepass.utils.InstantAppExecutors;
 import com.scleroidtech.gatepass.utils.SnackBarUtils;
@@ -121,9 +120,6 @@ public class MainActivity extends AppCompatActivity
         profileImageView = findViewById(R.id.img_profile);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

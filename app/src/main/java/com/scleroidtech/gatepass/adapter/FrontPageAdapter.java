@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 /**
  * Copyright (C) 3/13/18
  * Author ganesh
  */
-
-public class FrontPageAdapter extends RecyclerView.Adapter<FrontPageAdapter.ViewHolder> {
+@Deprecated
+public class FrontPageAdapter extends Adapter<FrontPageAdapter.ViewHolder> {
     private List<Front_View> front_views;
 
     public FrontPageAdapter(List<Front_View> front_views) {
@@ -38,7 +40,8 @@ public class FrontPageAdapter extends RecyclerView.Adapter<FrontPageAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        ViewDataBinding inflate = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_front_page, parent, false);
+        ViewDataBinding inflate = DataBindingUtil
+                .inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_front_page, parent, false);
         return new ViewHolder(inflate.getRoot());
     }
 

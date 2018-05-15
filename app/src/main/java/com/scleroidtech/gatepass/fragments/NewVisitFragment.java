@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.mainActivity;
+package com.scleroidtech.gatepass.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,8 +23,6 @@ import android.widget.TextView;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.scleroidtech.gatepass.R;
-import com.scleroidtech.gatepass.fragments.DatePickerFragment;
-import com.scleroidtech.gatepass.fragments.TimePickerFragment;
 import com.scleroidtech.gatepass.utils.DateUtils;
 import com.scleroidtech.gatepass.utils.ToastUtils;
 

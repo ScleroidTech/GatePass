@@ -1,27 +1,21 @@
-package com.scleroidtech.gatepass.mainActivity;
+package com.scleroidtech.gatepass.fragments;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.scleroidtech.gatepass.R;
-import com.scleroidtech.gatepass.adapter.FrontPageAdapter;
+import com.scleroidtech.gatepass.databinding.FragmentHomeBinding;
 import com.scleroidtech.gatepass.model.tempModels.Front_View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,8 +30,7 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @BindView(R.id.recycler_view_home_page)
-    RecyclerView recyclerView;
+
     @Inject
     Context context;
     // TODO: Rename and change types of parameters
@@ -45,8 +38,8 @@ public class HomeFragment extends Fragment {
     private String mParam2;
     private OnFragmentInteractionListener mListener;
     private List<Front_View> front_views;
-    private FrontPageAdapter frontPageAdapter;
-    private Unbinder unbinder;
+  //  private FrontPageAdapter frontPageAdapter;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -101,49 +94,28 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        FragmentHomeBinding fragmentHomeBinding =DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
+        View view = fragmentHomeBinding.getRoot();
 
-        setupRecyclerView();
-        front_views = initializeFrontRowData();
-        initializeRecyclerView();
+        initializeFrontRowData(fragmentHomeBinding);
+    //    initializeRecyclerView();
 
         return view;
-    }
-
-    private void initializeRecyclerView() {
-
-        frontPageAdapter.setFront_views(front_views);
-        frontPageAdapter.notifyDataSetChanged();
     }
 
 
     /**
      * Setups the recyclerView for the main page
+     * @param fragmentHomeBinding
      */
 
-    private void setupRecyclerView() {
-        // recyclerView = view.findViewById(R.id.recycler_view_home_page);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        frontPageAdapter = new FrontPageAdapter(new ArrayList<>());
-        recyclerView.setAdapter(frontPageAdapter);
-    }
 
-    private List<Front_View> initializeFrontRowData() {
-        List<Front_View> front_viewList = new ArrayList<>();
-        int[] drawableList = {R.drawable.ic_person_black_24dp,
-                R.drawable.ic_assignment_turned_in_black_24dp
-        };
-        String[] titleList = {
-                "Sign in a New Visit",
-                "Sign out an Existing Visit"
-        };
-        for (int i = 0; i < drawableList.length; i++) {
-
-            Front_View front_view = new Front_View(drawableList[i], titleList[i]);
-            front_viewList.add(front_view);
-        }
-        return front_viewList;
+    private void initializeFrontRowData(
+            final FragmentHomeBinding fragmentHomeBinding) {
+        fragmentHomeBinding.includeNewVisit.imageViewHomePage.setImageResource(R.drawable.ic_person_black_24dp);
+        fragmentHomeBinding.includeCloseVisit.imageViewHomePage.setImageResource(R.drawable.ic_assignment_turned_in_black_24dp);
+        fragmentHomeBinding.includeNewVisit.textViewHomePageTitle.setText("Sign in a New Visit");
+        fragmentHomeBinding.includeCloseVisit.textViewHomePageTitle.setText("Sign out an Existing Visit");
 
 
     }
@@ -151,7 +123,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        unbinder.unbind();
+
 
     }
 

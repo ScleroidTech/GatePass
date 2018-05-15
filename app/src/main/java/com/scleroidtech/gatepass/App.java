@@ -2,8 +2,8 @@ package com.scleroidtech.gatepass;
 
 import android.app.Application;
 
-import com.scleroidtech.gatepass.dependencyInjection.AppComponent;
-import com.scleroidtech.gatepass.dependencyInjection.DaggerAppComponent;
+import com.scleroidtech.gatepass.di.AppComponent;
+import com.scleroidtech.gatepass.di.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
