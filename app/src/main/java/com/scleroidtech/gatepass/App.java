@@ -3,6 +3,7 @@ package com.scleroidtech.gatepass;
 import android.app.Application;
 
 import com.scleroidtech.gatepass.di.AppComponent;
+import com.scleroidtech.gatepass.di.AppInjector;
 import com.scleroidtech.gatepass.di.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
@@ -29,12 +30,12 @@ public class App extends DaggerApplication {
             Timber.plant(new Timber.DebugTree());
         }
 
-      /*  DaggerAppComponent
+        DaggerAppComponent
                 .builder()
                 .application(this)
                 .build()
-                .inject(this);*/
-
+                .inject(this);
+        AppInjector.init(this);
         //    JobManagerFactory.getJobManager(this);
     }
 

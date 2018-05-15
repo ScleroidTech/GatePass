@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.scleroidtech.gatepass.R;
+import com.scleroidtech.gatepass.data.local.model.tempModels.Front_View;
 import com.scleroidtech.gatepass.databinding.FragmentHomeBinding;
-import com.scleroidtech.gatepass.model.tempModels.Front_View;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.scleroidtech.gatepass.model.Person;
+import com.scleroidtech.gatepass.data.local.model.Person;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
  * @author Ganesh Kaple
  * @see android.arch.persistence.room.Room
  * For Model
- * @see com.scleroidtech.gatepass.model.Person
+ * @see Person
  * @since 22-11-2017
  */
 @Dao

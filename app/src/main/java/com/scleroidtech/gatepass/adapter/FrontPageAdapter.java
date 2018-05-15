@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.scleroidtech.gatepass.R;
-import com.scleroidtech.gatepass.model.tempModels.Front_View;
+import com.scleroidtech.gatepass.data.local.model.tempModels.Front_View;
 
 import java.util.List;
 

@@ -4,10 +4,11 @@ import android.arch.persistence.room.RoomDatabase;
 
 import com.scleroidtech.gatepass.data.local.Dao.PersonDao;
 import com.scleroidtech.gatepass.data.local.Dao.VisitorDao;
+import com.scleroidtech.gatepass.data.local.model.Person;
 
 /**
  * @author Ganesh Kaple
- * @see com.scleroidtech.gatepass.model.Person
+ * @see Person
  * @since 27/10/17
  * It is a singleton class,so it holds only one object for it's entire existance
  * It holds the current object of database

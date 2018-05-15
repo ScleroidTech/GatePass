@@ -6,7 +6,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.scleroidtech.gatepass.model.Visit;
+import com.scleroidtech.gatepass.data.local.model.Visit;
 
 import java.util.List;
 

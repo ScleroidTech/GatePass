@@ -18,7 +18,7 @@ package com.scleroidtech.gatepass.data;
 
 import android.support.annotation.NonNull;
 
-import com.scleroidtech.gatepass.model.Visit;
+import com.scleroidtech.gatepass.data.local.model.Visit;
 
 import java.util.List;
 

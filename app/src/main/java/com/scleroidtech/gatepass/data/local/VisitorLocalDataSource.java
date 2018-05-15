@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import com.scleroidtech.gatepass.AppExecutors;
 import com.scleroidtech.gatepass.data.VisitorsDataSource;
 import com.scleroidtech.gatepass.data.local.Dao.VisitorDao;
-import com.scleroidtech.gatepass.model.Visit;
+import com.scleroidtech.gatepass.data.local.model.Visit;
 
 import java.util.List;
 
