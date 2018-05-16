@@ -5,6 +5,8 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
+import com.scleroidtech.gatepass.utils.roomConverters.DateConverter;
+
 import java.util.Date;
 
 import javax.annotation.Nullable;

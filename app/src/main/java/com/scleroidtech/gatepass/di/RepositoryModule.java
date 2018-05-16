@@ -14,6 +14,8 @@ import com.scleroidtech.gatepass.data.local.AppDatabase;
 import com.scleroidtech.gatepass.data.local.dao.PersonDao;
 import com.scleroidtech.gatepass.data.local.dao.VisitDao;
 import com.scleroidtech.gatepass.data.repo.LoanRepo;
+import com.scleroidtech.gatepass.utils.multithread.AppExecutors;
+import com.scleroidtech.gatepass.utils.multithread.DiskIOThreadExecutor;
 
 import org.greenrobot.eventbus.EventBus;
 

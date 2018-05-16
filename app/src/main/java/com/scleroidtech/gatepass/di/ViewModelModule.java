@@ -1,19 +1,11 @@
 package com.scleroidtech.gatepass.di;
 
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
-import com.scleroidtech.gatepass.fragments.customer.CustomerViewModel;
-import com.scleroidtech.gatepass.fragments.dashboard.DashboardViewModel;
-import com.scleroidtech.gatepass.fragments.expense.ExpenseViewModel;
-import com.scleroidtech.gatepass.fragments.loanDetails.LoanDetailsViewModel;
-import com.scleroidtech.gatepass.fragments.passbook.PassbookViewModel;
-import com.scleroidtech.gatepass.fragments.people.PeopleViewModel;
 import com.scleroidtech.gatepass.utils.ViewModelFactory;
 
 import dagger.Binds;
 import dagger.Module;
-import dagger.multibindings.IntoMap;
 
 /**
  * Copyright (C) 2018
@@ -25,7 +17,7 @@ import dagger.multibindings.IntoMap;
 @Module
 public abstract class ViewModelModule {
 
-	//TODO Need to work on this
+	/*//TODO Need to work on this
 	@Binds
 	@IntoMap
 	@ViewModelKey(CustomerViewModel.class)
@@ -55,7 +47,7 @@ public abstract class ViewModelModule {
 	@IntoMap
 	@ViewModelKey(PassbookViewModel.class)
 	abstract ViewModel bindPassbookViewModel(PassbookViewModel passbookViewModel);
-
+*/
 
 	@Binds
 	abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelFactory factory);

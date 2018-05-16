@@ -2,7 +2,7 @@ package com.scleroidtech.gatepass.utils.network.livedata;
 
 import android.arch.lifecycle.LiveData;
 
-import com.scleroid.financematic.data.remote.ApiResponse;
+import com.scleroidtech.gatepass.utils.network.ApiResponse;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;

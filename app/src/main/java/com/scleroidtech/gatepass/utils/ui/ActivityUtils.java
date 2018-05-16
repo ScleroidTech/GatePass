@@ -10,9 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
-import com.scleroid.financematic.MainActivity;
-import com.scleroid.financematic.R;
-import com.scleroid.financematic.base.BaseDialog;
+import com.scleroidtech.gatepass.R;
+import com.scleroidtech.gatepass.base.BaseDialog;
 
 import javax.inject.Inject;
 
@@ -102,6 +101,7 @@ public class ActivityUtils {
 		activity.startActivity(intent);
 	}
 
+/*
 	public void useUpButton(MainActivity activity, boolean value) {
 		ActionBar actionBar = activity.getSupportActionBar();
 		// Code here will be triggered once the drawer open as we dont want anything to
@@ -125,6 +125,7 @@ public class ActivityUtils {
 			activity.getToggle().setToolbarNavigationClickListener(null);
 		}
 	}
+*/
 
 	public void setTitle(AppCompatActivity activity, String msg) {
 		ActionBar actionBar = activity.getSupportActionBar();

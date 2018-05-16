@@ -18,6 +18,7 @@ import timber.log.Timber;
 /**
  * Created by john on 7/7/16.
  */
+@Deprecated
 public class RupeeTextView extends android.support.v7.widget.AppCompatTextView {
 
 	Context context;

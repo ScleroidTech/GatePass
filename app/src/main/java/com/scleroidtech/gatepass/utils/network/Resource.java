@@ -9,9 +9,9 @@ package com.scleroidtech.gatepass.utils.network;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import static com.scleroid.financematic.utils.network.Status.ERROR;
-import static com.scleroid.financematic.utils.network.Status.LOADING;
-import static com.scleroid.financematic.utils.network.Status.SUCCESS;
+import static com.scleroidtech.gatepass.utils.network.Status.ERROR;
+import static com.scleroidtech.gatepass.utils.network.Status.LOADING;
+import static com.scleroidtech.gatepass.utils.network.Status.SUCCESS;
 
 /**
  * A generic class that holds a value with its loading status.

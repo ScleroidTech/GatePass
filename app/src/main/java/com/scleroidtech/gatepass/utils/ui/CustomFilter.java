@@ -4,8 +4,7 @@ import android.widget.Filter;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
-import com.scleroid.financematic.data.local.model.Customer;
-import com.scleroid.financematic.fragments.people.PeopleAdapter;
+import com.scleroidtech.gatepass.data.local.model.Person;
 
 import java.util.List;
 
@@ -20,12 +19,12 @@ import hugo.weaving.DebugLog;
  */
 public class CustomFilter extends Filter {
 
-	PeopleAdapter adapter;
-	List<Customer> filterList;
+	//	PeopleAdapter adapter;
+	List<Person> filterList;
 
 
-	public CustomFilter(List<Customer> filterList, PeopleAdapter adapter) {
-		this.adapter = adapter;
+	public CustomFilter(List<Person> filterList/*, PeopleAdapter adapter*/) {
+//		this.adapter = adapter;
 		this.filterList = filterList;
 
 	}
@@ -59,7 +58,7 @@ public class CustomFilter extends Filter {
 
 		}*/
 		final String finalConstraint = constraint.toString().toLowerCase();
-		List<Customer> collect = Stream.of(filterList)
+		List<Person> collect = Stream.of(filterList)
 				.filter(human -> human.getName().toLowerCase().contains(
 						finalConstraint))
 				.collect(Collectors.toList());
@@ -74,7 +73,7 @@ public class CustomFilter extends Filter {
 	@Override
 	protected void publishResults(CharSequence constraint, FilterResults results) {
 
-		adapter.setCustomerList((List<Customer>) results.values);
+		//	adapter.setCustomerList((List<Customer>) results.values);
 
 
 	}

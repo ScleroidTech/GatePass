@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 import com.scleroidtech.gatepass.R;
 import com.scleroidtech.gatepass.databinding.FragmentHomeBinding;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 /**
@@ -36,8 +34,6 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
-    private List<Front_View> front_views;
-  //  private FrontPageAdapter frontPageAdapter;
 
 
     public HomeFragment() {

@@ -23,6 +23,11 @@ import android.widget.TextView;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.scleroidtech.gatepass.R;
+import com.scleroidtech.gatepass.base.BaseFragment;
+import com.scleroidtech.gatepass.base.BaseViewModel;
+import com.scleroidtech.gatepass.fragments.dialogs.DatePickerDialogFragment;
+import com.scleroidtech.gatepass.fragments.dialogs.TimePickerDialogFragment;
+import com.scleroidtech.gatepass.utils.ui.DateUtils;
 import com.scleroidtech.gatepass.utils.ui.ToastUtils;
 
 import java.util.Date;
@@ -31,7 +36,6 @@ import javax.inject.Inject;
 
 import butterknife.BindArray;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import butterknife.Unbinder;
@@ -47,7 +51,7 @@ import static com.basgeekball.awesomevalidation.ValidationStyle.TEXT_INPUT_LAYOU
  * Use the {@link NewVisitFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewVisitFragment extends Fragment {
+public class NewVisitFragment extends BaseFragment {
 
     private static final int REQUEST_DATE = 1;
     private static final int REQUEST_TIME = 2;
@@ -243,10 +247,10 @@ public class NewVisitFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if (requestCode == REQUEST_DATE) {
-            Date date = (Date) intent.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
+            Date date = (Date) intent.getSerializableExtra(DatePickerDialogFragment.EXTRA_DATE);
             dateUtils.setDate(date);
         } else if ((requestCode == REQUEST_TIME)) {
-            Date date = (Date) intent.getSerializableExtra(TimePickerFragment.EXTRA_TIME);
+            Date date = (Date) intent.getSerializableExtra(TimePickerDialogFragment.EXTRA_TIME);
             dateUtils.setTime(date);
         }
 
@@ -276,12 +280,16 @@ public class NewVisitFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_new_visit, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = getRootView();
         initializeSpinner();
-
         initializeValidation();
         return view;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_new_visit;
     }
 
     @DebugLog
@@ -320,16 +328,21 @@ public class NewVisitFragment extends Fragment {
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    protected void subscribeToLiveData() {
+
+    }
+
+    @Override
+    public BaseViewModel getViewModel() {
+        return null;
     }
 
     private void setEntryTime() {

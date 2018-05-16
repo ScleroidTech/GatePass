@@ -23,8 +23,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 
-import com.scleroid.financematic.data.remote.ApiResponse;
-import com.scleroid.financematic.utils.multithread.AppExecutors;
+import com.scleroidtech.gatepass.utils.multithread.AppExecutors;
 
 import java.util.Objects;
 
@@ -113,4 +112,6 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
 	public LiveData<Resource<ResultType>> asLiveData() {
 		return result;
 	}
+
+
 }

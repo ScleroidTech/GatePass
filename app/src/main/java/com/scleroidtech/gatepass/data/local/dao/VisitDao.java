@@ -69,15 +69,15 @@ public interface VisitDao extends BaseDao<Visit> {
     LiveData<List<Visit>> getItemsLive();
 
     @Override
-    @Query("SELECT * FROM Visit WHERE visitId = :VisitorId")
+    @Query("SELECT * FROM Visit WHERE visitId = :serialNo")
     Visit getItem(long serialNo);
 
     @Override
-    @Query("SELECT * FROM Visit WHERE visitId = :VisitorId")
+    @Query("SELECT * FROM Visit WHERE visitId = :serialNo")
     Single<Visit> getRxItem(int serialNo);
 
     @Override
-    @Query("SELECT * FROM Visit WHERE visitId = :VisitorId")
+    @Query("SELECT * FROM Visit WHERE visitId = :serialNo")
     LiveData<Visit> getItemLive(int serialNo);
 
     @Override

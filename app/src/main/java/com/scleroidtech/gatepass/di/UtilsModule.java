@@ -1,6 +1,7 @@
 package com.scleroidtech.gatepass.di;
 
 import com.scleroidtech.gatepass.utils.ui.ActivityUtils;
+import com.scleroidtech.gatepass.utils.ui.DateUtils;
 import com.scleroidtech.gatepass.utils.ui.SnackBarUtils;
 import com.scleroidtech.gatepass.utils.ui.TextViewUtils;
 import com.scleroidtech.gatepass.utils.ui.ToastUtils;

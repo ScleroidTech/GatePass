@@ -28,6 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.scleroidtech.gatepass.fragments.HomeFragment;
+import com.scleroidtech.gatepass.utils.multithread.AppExecutors;
+import com.scleroidtech.gatepass.utils.multithread.InstantAppExecutors;
 import com.scleroidtech.gatepass.utils.ui.ImageUtils;
 import com.scleroidtech.gatepass.utils.ui.SnackBarUtils;
 
@@ -241,7 +243,7 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
                     android.R.anim.fade_out);
-            fragmentTransaction.replace(R.id.frame, fragment, CURRENT_TAG);
+	        fragmentTransaction.replace(R.id.frame_container, fragment, CURRENT_TAG);
             fragmentTransaction.commitAllowingStateLoss();
         };
 

@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.fragments;
+package com.scleroidtech.gatepass.fragments.dialogs;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -23,16 +23,16 @@ import java.util.Date;
  */
 
 
-public class TimePickerFragment extends DialogFragment {
+public class TimePickerDialogFragment extends DialogFragment {
     public static final String EXTRA_TIME = "com.example.ganesh.criminalintent.time";
     private static final String ARG_TIME = "crime_time";
     private TimePicker mTimePicker;
 
-    public static TimePickerFragment newInstance(Date date) {
+    public static TimePickerDialogFragment newInstance(Date date) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(ARG_TIME, date);
 
-        TimePickerFragment fragment = new TimePickerFragment();
+        TimePickerDialogFragment fragment = new TimePickerDialogFragment();
         fragment.setArguments(bundle);
         return fragment;
 

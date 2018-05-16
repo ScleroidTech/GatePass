@@ -6,7 +6,7 @@ package com.scleroidtech.gatepass.utils;
  * @author Ganesh Kaple
  * @since 4/6/18
  */
-class AppConstants {
+public class AppConstants {
 
 	public static final String TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss";
 }
