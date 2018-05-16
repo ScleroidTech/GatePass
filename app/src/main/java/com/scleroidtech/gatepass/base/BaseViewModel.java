@@ -3,8 +3,6 @@ package com.scleroidtech.gatepass.base;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.scleroid.financematic.utils.network.Resource;
-
 import java.util.List;
 
 /**
@@ -88,9 +86,9 @@ public abstract class BaseViewModel<N> extends ViewModel {
 		return localExpenseLab.getItems();
 	}
 */
-	protected abstract LiveData<Resource<List<N>>> updateItemLiveData();
+	protected abstract LiveData<List<N>> updateItemLiveData();
 
-	protected abstract LiveData<Resource<List<N>>> getItemList();
+	protected abstract LiveData<List<N>> getItemList();
 
 /* @Override
     protected void onCleared() {

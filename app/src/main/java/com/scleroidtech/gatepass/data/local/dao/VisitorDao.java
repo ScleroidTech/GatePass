@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.data.local.Dao;
+package com.scleroidtech.gatepass.data.local.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -17,14 +17,14 @@ import java.util.List;
  * @since 3/13/18
  */
 @Dao
-public interface VisitorDao {
+public interface VisitorDao extends BaseDao<Visit>  {
     /**
      * Select all Visitors from the Visit table.
      *
      * @return all Visitors.
      */
     @Query("SELECT * FROM Visit")
-    List<Visit> getVisitors();
+    List<Visit> getItems();
 
     /**
      * Select a Visit by id.
@@ -33,15 +33,16 @@ public interface VisitorDao {
      * @return the Visit with VisitorId.
      */
     @Query("SELECT * FROM Visit WHERE visitId = :VisitorId")
-    Visit getVisitorById(String VisitorId);
+    Visit getItem(String VisitorId);
 
     /**
      * Insert a Visit in the database. If the Visit already exists, replace it.
      *
      * @param Visit the Visit to be inserted.
      */
+    @Override
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertVisitor(Visit Visit);
+    void insert(Visit Visit);
 
     /**
      * Update a Visit.
@@ -49,8 +50,9 @@ public interface VisitorDao {
      * @param Visit Visit to be updated
      * @return the number of Visit updated. This should always be 1.
      */
+    @Override
     @Update
-    int updateVisitor(Visit Visit);
+    int update(Visit Visit);
 
     /**
      * Update the complete status of a Visit

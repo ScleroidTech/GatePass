@@ -12,9 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.google.common.eventbus.EventBus;
 import com.scleroidtech.gatepass.utils.CommonUtils;
+import com.scleroidtech.gatepass.utils.eventBus.GlobalBus;
 import com.scleroidtech.gatepass.utils.network.NetworkUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import dagger.android.AndroidInjection;
 import dagger.android.support.HasSupportFragmentInjector;

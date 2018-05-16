@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.data.local.Dao;
+package com.scleroidtech.gatepass.data.local.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -24,7 +24,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
  * @since 22-11-2017
  */
 @Dao
-public interface PersonDao {
+public interface PersonDao extends BaseDao<Person> {
 
 
     /**
@@ -32,16 +32,18 @@ public interface PersonDao {
      *
      * @return List of all Persones in database
      */
+    @Override
     @Query("SELECT * FROM Person")
-    List<Person> getPersons();
+    List<Person> getItems();
 
     /**
      * Returns  list of all Persones
      *
      * @return LiveData object List of all Persones in database
      */
+    @Override
     @Query("SELECT * FROM Person")
-    LiveData<List<Person>> getAllPersonLive();
+    LiveData<List<Person>> getItemsLive();
 
     /**
      * Returns a specific value compared to serialNo passed
@@ -49,22 +51,25 @@ public interface PersonDao {
      * @param serialNo the serialNo of object to be found
      * @return Person object with same serialNo
      */
+    @Override
     @Query("SELECT * FROM Person where serialNo = :serialNo ")
-    Person findById(long serialNo);
+    Person getItem(long serialNo);
 
     /**
      * select query to count Number of Person
      *
      * @return number of total entries in the table
      */
+    @Override
     @Query("SELECT COUNT(*) from Person")
-    int countPerson();
+    int countItem();
 
     /**
      * Performs insertion operation
      *
      * @param Person inserts this object in the database
      */
+    @Override
     @Insert(onConflict = REPLACE)
     void insert(Person Person);
 
@@ -73,6 +78,7 @@ public interface PersonDao {
      *
      * @param Person inserts list of Person object
      */
+    @Override
     @Insert
     void insertAll(Person... Person);
 
@@ -81,10 +87,12 @@ public interface PersonDao {
      *
      * @param Person the Person which needs to be updated
      */
+    @Override
     @Update(onConflict = REPLACE)
-    void update(Person Person);
+    int update(Person Person);
 
 
+    @Override
     @Delete
     void delete(Person Person);
 
@@ -92,6 +100,7 @@ public interface PersonDao {
      * Let the database be a part of history
      * I meant, it deletes the whole table
      */
+    @Override
     @Query("DELETE FROM Person")
     void nukeTable();
 

@@ -1,4 +1,5 @@
-package com.scleroidtech.gatepass.data.local.Dao;
+package com.scleroidtech.gatepass.data.local.dao;
+
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -7,13 +8,11 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.scleroid.financematic.data.local.model.Customer;
+import com.scleroidtech.gatepass.data.local.model.Customer;
 
 import java.util.List;
 
 import io.reactivex.Single;
-
-import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 /**
  * Data Access Object required for
@@ -27,7 +26,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
  * @since 10-01-2018
  */
 @Dao
-
+@Deprecated
 public interface CustomerDao {
 
 	/**
