@@ -1,9 +1,9 @@
 package com.scleroidtech.gatepass.data.local.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
-
-import com.scleroidtech.gatepass.utils.DateConverter;
 
 import java.util.Date;
 
@@ -15,9 +15,11 @@ import javax.annotation.Nullable;
  * @author Ganesh Kaple
  * @since 3/13/18
  */
-/*@Entity(foreignKeys = @ForeignKey(entity = Person.class,
+
+
+@Entity(foreignKeys = @ForeignKey(entity = Person.class,
         parentColumns = "serialNo",
-        childColumns = "serialNoVisitor"))*/
+		childColumns = "serialNoVisitor"))
 public class Visit {
 	@PrimaryKey(autoGenerate = true)
 	private long visitId;

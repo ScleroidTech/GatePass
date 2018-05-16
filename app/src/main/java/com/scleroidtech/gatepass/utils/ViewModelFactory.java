@@ -6,23 +6,7 @@ package com.scleroidtech.gatepass.utils;
  * @since 4/4/18
  */
 
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
-
-import com.scleroid.financematic.data.repo.CustomerRepo;
-import com.scleroid.financematic.data.repo.ExpenseRepo;
-import com.scleroid.financematic.data.repo.InstallmentRepo;
-import com.scleroid.financematic.data.repo.LoanRepo;
-import com.scleroid.financematic.data.repo.TransactionsRepo;
-import com.scleroid.financematic.fragments.customer.CustomerViewModel;
-import com.scleroid.financematic.fragments.dashboard.DashboardViewModel;
-import com.scleroid.financematic.fragments.expense.ExpenseViewModel;
-import com.scleroid.financematic.fragments.loanDetails.LoanDetailsViewModel;
-import com.scleroid.financematic.fragments.passbook.PassbookViewModel;
-import com.scleroid.financematic.fragments.people.PeopleViewModel;
-import com.scleroid.financematic.fragments.report.ReportViewModel;
-
-import javax.inject.Inject;
 
 /**
  * A creator is used to inject the product ID into the ViewModel
@@ -32,7 +16,8 @@ import javax.inject.Inject;
  */
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
-	private CustomerRepo customerRepo;
+	//TODO Let's implement this later
+	/*private CustomerRepo customerRepo;
 	private LoanRepo loanRepo;
 
 
@@ -80,5 +65,5 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 			return (T) new ReportViewModel(transactionsRepo);
 		}
 		throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
-	}
+	}*/
 }

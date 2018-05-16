@@ -14,7 +14,7 @@
  *  limitations under the License
  */
 
-package com.scleroidtech.gatepass.utils;
+package com.scleroidtech.gatepass.utils.ui;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -24,7 +24,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 import android.util.Patterns;
-import android.widget.Toast;
+
+import com.scleroidtech.gatepass.utils.AppConstants;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,8 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
-
-import es.dmoral.toasty.Toasty;
 
 /**
  * Created by amitshekhar on 07/07/17.
@@ -84,6 +83,7 @@ public final class CommonUtils {
 		return progressDialog;
 	}
 
+/*
 	public static void makeToast(final String message, final String type, Context context) {
 		Toast toast = Toasty.info(context, "Nothing is Happening, We're just having fun here");
 		if ("error".equals(type)) {
@@ -92,6 +92,7 @@ public final class CommonUtils {
 //TODO Add Other types of toasts here.
 		toast.show();
 	}
+*/
 
 	public static int getRandomInt() {
 		return new Random().nextInt(Integer.MAX_VALUE);

@@ -1,35 +1,24 @@
 package com.scleroidtech.gatepass.data.local.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
-import com.scleroid.financematic.utils.roomConverters.DateConverter;
-import com.scleroid.financematic.utils.roomConverters.MoneyConverter;
+import com.scleroidtech.gatepass.utils.roomConverters.DateConverter;
+import com.scleroidtech.gatepass.utils.roomConverters.MoneyConverter;
 
 import java.math.BigDecimal;
 import java.util.Date;
-
-import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 /**
  * Created by Lincoln on 15/01/16.
  */
 
-@Entity(foreignKeys = @ForeignKey(entity = Customer.class,
-		parentColumns = "customerId",
-		childColumns = "custId",
-		onDelete = CASCADE),
-		indices = {@Index(value = "accountNo", unique = true)})
+@Deprecated
 public class Loan {
 	/* private String title, genre, year;
 	 */
 
-	@Ignore
-	private Customer customer;
 	@TypeConverters(MoneyConverter.class)
 	private BigDecimal receivedAmt;
 	@TypeConverters(MoneyConverter.class)
@@ -81,14 +70,6 @@ public class Loan {
 		this.custId = custId;
 	}
 
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(final Customer customer) {
-		this.customer = customer;
-	}
 
 	@Override
 	public String toString() {

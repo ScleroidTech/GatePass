@@ -6,6 +6,7 @@ package com.scleroidtech.gatepass.data.local.model;
  * @author Ganesh Kaple
  * @since 4/16/18
  */
+@Deprecated
 public interface IdProofType {
 
 	String AADHAR = "Aadhar Card";

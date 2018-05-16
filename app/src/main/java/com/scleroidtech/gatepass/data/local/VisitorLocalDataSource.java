@@ -6,9 +6,8 @@ package com.scleroidtech.gatepass.data.local;
 
 import android.support.annotation.NonNull;
 
-import com.scleroidtech.gatepass.AppExecutors;
 import com.scleroidtech.gatepass.data.VisitorsDataSource;
-import com.scleroidtech.gatepass.data.local.dao.VisitorDao;
+import com.scleroidtech.gatepass.data.local.dao.VisitDao;
 import com.scleroidtech.gatepass.data.local.model.Visit;
 
 import java.util.List;
@@ -23,14 +22,15 @@ import javax.inject.Singleton;
  * @since 3/13/18
  * Concrete implementation of a data source as a db.
  */
+@Deprecated
 @Singleton
 public class VisitorLocalDataSource implements VisitorsDataSource {
-    private final VisitorDao visitorsDao;
+    private final VisitDao visitorsDao;
 
     private final AppExecutors mAppExecutors;
 
     @Inject
-    public VisitorLocalDataSource(VisitorDao visitorsDao, AppExecutors mAppExecutors) {
+    public VisitorLocalDataSource(VisitDao visitorsDao, AppExecutors mAppExecutors) {
         this.visitorsDao = visitorsDao;
         this.mAppExecutors = mAppExecutors;
     }
@@ -42,7 +42,7 @@ public class VisitorLocalDataSource implements VisitorsDataSource {
     @Override
     public void getVisitors(@NonNull final VisitorsDataSource.LoadVisitorsCallback callback) {
         Runnable runnable = () -> {
-            final List<Visit> visits = visitorsDao.getVisitors();
+            final List<Visit> visits = visitorsDao.getItems();
             mAppExecutors.mainThread().execute(() -> {
                 if (visits.isEmpty()) {
                     // This will be called if the table is new or just empty.

@@ -7,6 +7,8 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 public interface BaseDao<T> {
@@ -35,6 +37,11 @@ public interface BaseDao<T> {
 
 	T getItem(long serialNo);
 
+	Single<T> getRxItem(int serialNo);
+
+	LiveData<T> getItemLive(int serialNo);
+
+
 	/**
 	 * select query to count Number of Items
 	 *
@@ -49,7 +56,7 @@ public interface BaseDao<T> {
 	 * @param t inserts this object in the database
 	 */
 	@Insert(onConflict = REPLACE)
-	void insert(T t);
+	long insert(T t);
 
 	/**
 	 * Performs insertion operation for multiple values
@@ -57,7 +64,7 @@ public interface BaseDao<T> {
 	 * @param ts inserts list of Person object
 	 */
 	@Insert
-	void insertAll(T... ts);
+	long[] insertAll(List<T> ts);
 
 	/**
 	 * Updates a specified dataset

@@ -3,13 +3,13 @@ package com.scleroidtech.gatepass.di;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
-import com.scleroid.financematic.fragments.customer.CustomerViewModel;
-import com.scleroid.financematic.fragments.dashboard.DashboardViewModel;
-import com.scleroid.financematic.fragments.expense.ExpenseViewModel;
-import com.scleroid.financematic.fragments.loanDetails.LoanDetailsViewModel;
-import com.scleroid.financematic.fragments.passbook.PassbookViewModel;
-import com.scleroid.financematic.fragments.people.PeopleViewModel;
-import com.scleroid.financematic.utils.ViewModelFactory;
+import com.scleroidtech.gatepass.fragments.customer.CustomerViewModel;
+import com.scleroidtech.gatepass.fragments.dashboard.DashboardViewModel;
+import com.scleroidtech.gatepass.fragments.expense.ExpenseViewModel;
+import com.scleroidtech.gatepass.fragments.loanDetails.LoanDetailsViewModel;
+import com.scleroidtech.gatepass.fragments.passbook.PassbookViewModel;
+import com.scleroidtech.gatepass.fragments.people.PeopleViewModel;
+import com.scleroidtech.gatepass.utils.ViewModelFactory;
 
 import dagger.Binds;
 import dagger.Module;
@@ -24,6 +24,8 @@ import dagger.multibindings.IntoMap;
 
 @Module
 public abstract class ViewModelModule {
+
+	//TODO Need to work on this
 	@Binds
 	@IntoMap
 	@ViewModelKey(CustomerViewModel.class)

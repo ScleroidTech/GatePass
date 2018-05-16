@@ -1,8 +1,9 @@
 package com.scleroidtech.gatepass.di;
 
-import com.scleroid.financematic.utils.ui.ActivityUtils;
-import com.scleroid.financematic.utils.ui.DateUtils;
-import com.scleroid.financematic.utils.ui.TextViewUtils;
+import com.scleroidtech.gatepass.utils.ui.ActivityUtils;
+import com.scleroidtech.gatepass.utils.ui.SnackBarUtils;
+import com.scleroidtech.gatepass.utils.ui.TextViewUtils;
+import com.scleroidtech.gatepass.utils.ui.ToastUtils;
 
 import javax.inject.Singleton;
 
@@ -25,6 +26,13 @@ public abstract class UtilsModule {
 
 	@Singleton
 	abstract ActivityUtils getActivityUtils();
+
+	@Singleton
+	abstract SnackBarUtils getSnackBarUtils();
+
+	@Singleton
+	abstract ToastUtils getToastUtils();
+
 
 
 }

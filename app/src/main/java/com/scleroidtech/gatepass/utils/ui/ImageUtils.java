@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.utils;
+package com.scleroidtech.gatepass.utils.ui;
 
 import android.content.Context;
 import android.widget.ImageView;

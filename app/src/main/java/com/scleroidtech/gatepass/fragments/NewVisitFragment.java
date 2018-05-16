@@ -23,8 +23,7 @@ import android.widget.TextView;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.scleroidtech.gatepass.R;
-import com.scleroidtech.gatepass.utils.DateUtils;
-import com.scleroidtech.gatepass.utils.ToastUtils;
+import com.scleroidtech.gatepass.utils.ui.ToastUtils;
 
 import java.util.Date;
 

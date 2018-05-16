@@ -1,4 +1,4 @@
-package com.scleroidtech.gatepass.utils;
+package com.scleroidtech.gatepass.utils.ui;
 
 import android.support.design.widget.Snackbar;
 import android.view.View;

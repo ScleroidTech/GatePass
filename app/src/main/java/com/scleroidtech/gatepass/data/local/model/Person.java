@@ -5,6 +5,7 @@ package com.scleroidtech.gatepass.data.local.model;
  * Author ganesh
  */
 
+import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 import javax.annotation.Nullable;
@@ -12,7 +13,7 @@ import javax.annotation.Nullable;
 /**
  * Model Class for an individual Person
  */
-/*@Entity*/
+@Entity
 public class Person {
 
 	@PrimaryKey(autoGenerate = true)

@@ -3,7 +3,7 @@ package com.scleroidtech.gatepass.data.local;
 import android.arch.persistence.room.RoomDatabase;
 
 import com.scleroidtech.gatepass.data.local.dao.PersonDao;
-import com.scleroidtech.gatepass.data.local.dao.VisitorDao;
+import com.scleroidtech.gatepass.data.local.dao.VisitDao;
 import com.scleroidtech.gatepass.data.local.model.Person;
 
 /**
@@ -69,10 +69,10 @@ public abstract class AppDatabase extends RoomDatabase {
      * For Room Library
      *
      * @return an object of
-     * @see com.scleroidtech.gatepass.data.local.dao.VisitorDao
-     * @see com.scleroidtech.gatepass.data.local.dao.VisitorDao
+     * @see VisitDao
+     * @see VisitDao
      */
-    public abstract VisitorDao visitorDao();
+    public abstract VisitDao visitDao();
 
 
 }

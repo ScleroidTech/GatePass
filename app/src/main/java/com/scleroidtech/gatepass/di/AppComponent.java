@@ -9,9 +9,6 @@ package com.scleroidtech.gatepass.di;
 import android.app.Application;
 
 import com.scleroidtech.gatepass.App;
-import com.scleroidtech.gatepass.utils.DateUtils;
-import com.scleroidtech.gatepass.utils.SnackBarUtils;
-import com.scleroidtech.gatepass.utils.ToastUtils;
 
 import javax.inject.Singleton;
 
@@ -35,19 +32,15 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Singleton
 @Component(modules = {RepositoryModule.class,
         ApplicationModule.class,
-        // ActivityBindingModule.class,
+        /* ActivityBindingModule.class,*/
+        MainActivityModule.class,
+        UtilsModule.class,
         AndroidSupportInjectionModule.class})
-
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
     void inject(App application);
 
     //   TasksRepository getTasksRepository();
-    SnackBarUtils getSnackBarUtils();
-
-    ToastUtils getToastUtils();
-
-    DateUtils getDateUtils();
 
     @Override
     void inject(DaggerApplication instance);

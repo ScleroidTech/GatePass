@@ -57,6 +57,11 @@ android {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
         }
     }
+    buildTypes.each {
+        //TODO Change this sometime
+        it.buildConfigField 'String', 'API_BASE_URL', "\"http://jsonplaceholder.typicode.com\""
+    }
+
 //Enable DataBinding
     dataBinding {
         enabled = true

@@ -1,19 +1,20 @@
 package com.scleroidtech.gatepass.di;
 
-import com.scleroid.financematic.Notification;
-import com.scleroid.financematic.fragments.RegisterCustomerFragment;
-import com.scleroid.financematic.fragments.RegisterLoanFragment;
-import com.scleroid.financematic.fragments.ReminderFragment;
-import com.scleroid.financematic.fragments.customer.CustomerFragment;
-import com.scleroid.financematic.fragments.dashboard.DashboardFragment;
-import com.scleroid.financematic.fragments.dialogs.DatePickerDialogFragment;
-import com.scleroid.financematic.fragments.dialogs.DelayDialogFragment;
-import com.scleroid.financematic.fragments.dialogs.RegisterReceivedDialogFragment;
-import com.scleroid.financematic.fragments.expense.ExpenseFragment;
-import com.scleroid.financematic.fragments.loanDetails.LoanDetailsFragment;
-import com.scleroid.financematic.fragments.passbook.PassbookFragment;
-import com.scleroid.financematic.fragments.people.PeopleFragment;
-import com.scleroid.financematic.fragments.report.ReportFragment;
+
+import com.scleroidtech.gatepass.fragments.RegisterCustomerFragment;
+import com.scleroidtech.gatepass.fragments.RegisterLoanFragment;
+import com.scleroidtech.gatepass.fragments.ReminderFragment;
+import com.scleroidtech.gatepass.fragments.customer.CustomerFragment;
+import com.scleroidtech.gatepass.fragments.dashboard.DashboardFragment;
+import com.scleroidtech.gatepass.fragments.dialogs.DatePickerDialogFragment;
+import com.scleroidtech.gatepass.fragments.dialogs.DelayDialogFragment;
+import com.scleroidtech.gatepass.fragments.dialogs.InsertExpenseDialogFragment;
+import com.scleroidtech.gatepass.fragments.dialogs.RegisterReceivedDialogFragment;
+import com.scleroidtech.gatepass.fragments.expense.ExpenseFragment;
+import com.scleroidtech.gatepass.fragments.loanDetails.LoanDetailsFragment;
+import com.scleroidtech.gatepass.fragments.passbook.PassbookFragment;
+import com.scleroidtech.gatepass.fragments.people.PeopleFragment;
+import com.scleroidtech.gatepass.fragments.report.ReportFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -26,6 +27,7 @@ import dagger.android.ContributesAndroidInjector;
  */
 @Module
 public abstract class FragmentBuildersModule {
+	//TODO Update this class
 	@ContributesAndroidInjector
 	abstract DashboardFragment contributeDashboardFragment();
 
@@ -59,8 +61,6 @@ public abstract class FragmentBuildersModule {
 	@ContributesAndroidInjector
 	abstract ReportFragment contributeReportFragment();
 
-	@ContributesAndroidInjector
-	abstract Notification contributeNotification();
 
 	@ContributesAndroidInjector
 	abstract DelayDialogFragment contributeDelayDialog();
@@ -69,7 +69,7 @@ public abstract class FragmentBuildersModule {
 	abstract DatePickerDialogFragment contributeDatePickerDialogFragment();
 
 	@ContributesAndroidInjector
-	abstract com.scleroid.financematic.fragments.dialogs.InsertExpenseDialogFragment
+	abstract InsertExpenseDialogFragment
 	contributeInserDialogFragment();
 
 

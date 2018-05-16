@@ -2,16 +2,13 @@ package com.scleroidtech.gatepass.data.local.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Update;
 
 import com.scleroidtech.gatepass.data.local.model.Person;
 
 import java.util.List;
 
-import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
+import io.reactivex.Single;
 
 
 /**
@@ -55,6 +52,14 @@ public interface PersonDao extends BaseDao<Person> {
     @Query("SELECT * FROM Person where serialNo = :serialNo ")
     Person getItem(long serialNo);
 
+    @Override
+    @Query("SELECT * FROM Person where serialNo = :serialNo ")
+    Single<Person> getRxItem(int serialNo);
+
+    @Override
+    @Query("SELECT * FROM Person where serialNo = :serialNo ")
+    LiveData<Person> getItemLive(int serialNo);
+
     /**
      * select query to count Number of Person
      *
@@ -64,29 +69,29 @@ public interface PersonDao extends BaseDao<Person> {
     @Query("SELECT COUNT(*) from Person")
     int countItem();
 
-    /**
+    /* *//**
      * Performs insertion operation
      *
      * @param Person inserts this object in the database
-     */
+     *//*
     @Override
     @Insert(onConflict = REPLACE)
-    void insert(Person Person);
+    long insert(Person Person);
 
-    /**
+    *//**
      * Performs insertion operation for multiple values
      *
      * @param Person inserts list of Person object
-     */
+     *//*
     @Override
     @Insert
-    void insertAll(Person... Person);
+    long[] insertAll(List<Person> Person);
 
-    /**
+    *//**
      * Updates a specified dataset
      *
      * @param Person the Person which needs to be updated
-     */
+     *//*
     @Override
     @Update(onConflict = REPLACE)
     int update(Person Person);
@@ -95,7 +100,7 @@ public interface PersonDao extends BaseDao<Person> {
     @Override
     @Delete
     void delete(Person Person);
-
+*/
     /**
      * Let the database be a part of history
      * I meant, it deletes the whole table

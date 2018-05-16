@@ -28,9 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.scleroidtech.gatepass.fragments.HomeFragment;
-import com.scleroidtech.gatepass.utils.ImageUtils;
-import com.scleroidtech.gatepass.utils.InstantAppExecutors;
-import com.scleroidtech.gatepass.utils.SnackBarUtils;
+import com.scleroidtech.gatepass.utils.ui.ImageUtils;
+import com.scleroidtech.gatepass.utils.ui.SnackBarUtils;
 
 import java.util.Arrays;
 import java.util.List;

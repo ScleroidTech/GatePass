@@ -12,9 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.scleroidtech.gatepass.utils.CommonUtils;
 import com.scleroidtech.gatepass.utils.eventBus.GlobalBus;
 import com.scleroidtech.gatepass.utils.network.NetworkUtils;
+import com.scleroidtech.gatepass.utils.ui.CommonUtils;
 
 import org.greenrobot.eventbus.EventBus;
 

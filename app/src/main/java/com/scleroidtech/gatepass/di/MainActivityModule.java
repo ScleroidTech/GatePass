@@ -1,6 +1,7 @@
 package com.scleroidtech.gatepass.di;
 
-import com.scleroid.financematic.MainActivity;
+
+import com.scleroidtech.gatepass.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
